@@ -97,7 +97,19 @@
 
         @yield('content')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+        <!-- ##### Footer Area End ##### -->
+
+        <!-- ##### All Javascript Script ##### -->
+        <!-- jQuery-2.2.4 js -->
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- All Plugins js -->
+        <script src="js/plugins.js"></script>
+        <!-- Active js -->
+        <script src="js/active.js"></script>
+        
 </body>
 </html>
