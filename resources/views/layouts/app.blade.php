@@ -55,6 +55,23 @@
                                       <li><a class="btn-lash" href="#courses">Курсы</a></li>
                                       <li><a class="btn-lash" href="questions.html">Вопросы</a></li>
                                       <li><a class="btn-lash" href="#">Заказать курс</a></li>
+                                      @auth
+                                      <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                           <a href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                           document.getElementById('logout-form').submit();">
+                                           Logout
+                                         </a>
+
+                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                           {{ csrf_field() }}
+                                         </form>
+                                       </div>
+                                     </li>
+                                    @endauth
                                   </ul>
                               </div>
                               <!-- Nav End -->
@@ -64,35 +81,6 @@
               </div>
           </div>
       </header>
-      <!-- ##### Header Area End ##### -->
-
-
-                  <!--  <ul class="nav navbar-nav navbar-right">
-                       Authentication Links
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest -->
 
 
         @yield('content')
@@ -110,6 +98,6 @@
         <script src="js/plugins.js"></script>
         <!-- Active js -->
         <script src="js/active.js"></script>
-        
+
 </body>
 </html>

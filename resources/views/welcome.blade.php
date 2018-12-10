@@ -75,7 +75,7 @@
                 </p>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a class="btn-lash">Заказать</a>
+                        <a  data-toggle="modal" data-target="#order" class="btn-lash">Заказать</a>
                     </div>
                 </div>
             </div>
@@ -212,6 +212,27 @@
         </div>
     </div>
 </footer>
+
+<!-- modal form order -->
+<div class="modal fade" id="order" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Оформление заказа</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="price">Цена:</label>
+            <input required type="text" class="form-control" name="price" id="price" value="">
+            <br>
+            <button type="submit" class="btn btn-success">Изменить</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
 
 @endsection
