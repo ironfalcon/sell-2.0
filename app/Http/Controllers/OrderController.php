@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\m;
 use Illuminate\Http\Request;
-
+use App\Order;
+use App\Client;
+use Carbon\Carbon;
 class OrderController extends Controller
 {
     /**
@@ -25,6 +26,7 @@ class OrderController extends Controller
     public function create()
     {
         //
+        return view('orders.create');
     }
 
     /**
@@ -36,15 +38,52 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'name' => 'required',
+            'surname' => 'required',
+            'old' => 'required|integer|between:10,110',
+            'country' => 'required',
+            'region' => 'required',
+            'address' => 'required',
+            'email' => 'required', ]);
+
+        $client = new Client;
+        $client->name = $request->name;
+        $client->surname = $request->surname;
+        $client->old = $request->old;
+        $client->country = $request->country;
+        $client->region = $request->region;
+        $client->address = $request->address;
+        $client->email = $request->email;
+        // $client->create([
+        //     'name' => $request->name,
+        //     'surname' => $request->surname,
+        //     'old' => $request->old,
+        //     'country' => $request->country,
+        //     'region' => $request->region,
+        //     'address' => $request->address,
+        //     'email' => $request->email,
+        $client->created_at = Carbon::now('Europe/Samara');
+        $client->updated_at = Carbon::now('Europe/Samara');
+            // ]);
+        $client->save();
+
+        $order = new Order;
+        $order->product_id = $request->product_id;
+        $order->client_id = $client->id;
+        $order->save();
+
+        return redirect()->route('index');
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\m  $m
      * @return \Illuminate\Http\Response
      */
-    public function show(m $m)
+    public function show($id)
     {
         //
     }
@@ -52,10 +91,9 @@ class OrderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\m  $m
      * @return \Illuminate\Http\Response
      */
-    public function edit(m $m)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +102,9 @@ class OrderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\m  $m
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, m $m)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +112,9 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\m  $m
      * @return \Illuminate\Http\Response
      */
-    public function destroy(m $m)
+    public function destroy($id)
     {
         //
     }

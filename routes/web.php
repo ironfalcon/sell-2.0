@@ -13,8 +13,11 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 Auth::routes();
+
+Route::post('/order/store', 'OrderController@store')->name('order.store');
+Route::get('/order/create', 'OrderController@create')->name('order.create');
 
 Route::get('/home', 'HomeController@index')->name('home');
