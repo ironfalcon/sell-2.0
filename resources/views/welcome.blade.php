@@ -2,16 +2,6 @@
 
 @section('content')
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
 <!-- ##### About Us Area Start ##### -->
 <div id="about">
     <div class="container-fluid">
@@ -85,7 +75,7 @@
                 </p>
                 <div class="row">
                     <div class="col-12 text-center">
-                        <a  data-toggle="modal" data-target="#orderBasic" class="btn-lash">Заказать</a>
+                        <a href="{{ route('order.create') }}" class="btn-lash">Заказать</a>
                     </div>
                 </div>
             </div>
@@ -222,50 +212,6 @@
         </div>
     </div>
 </footer>
-
-<!-- modal form order -->
-<div class="modal fade" id="orderBasic" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Оформление заказа</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form enctype="multipart/form-data" action="{{ route('order.store') }}" method="POST">
-            {{ csrf_field() }}
-          <div class="form-group">
-            <label for="name">Имя:</label>
-            <input required type="text" class="form-control" name="name" id="name" value="{{ old('name')}}">
-            <br>
-            <label for="surname">Фамилия:</label>
-            <input required type="text" class="form-control" name="surname" id="surname" value="{{ old('surname')}}">
-            <br>
-            <label for="old">Возраст:</label>
-            <input required type="text" class="form-control" name="old" id="old" value="{{ old('old')}}">
-            <br>
-            <label for="country">Страна:</label>
-            <input required type="text" class="form-control" name="country" id="country" value="{{ old('country')}}">
-            <br>
-            <label for="region">Область:</label>
-            <input required type="text" class="form-control" name="region" id="region" value="{{ old('region')}}">
-            <br>
-            <label for="address">Адрес:</label>
-            <input required type="text" class="form-control" name="address" id="address" value="{{ old('address')}}">
-            <br>
-            <label for="email">Электронная почта:</label>
-            <input required type="email" class="form-control" name="email" id="email" value="{{ old('email')}}">
-            <small id="emailHelp" class="form-text text-muted">На указанную почту вы получите письмо с информацией о заказе.</small>
-            <br>
-            <input type="hidden" name="product_id" id="product_id" value="1">
-            <button type="submit" class="btn btn-success">Заказать</button>
-          </div>
-        </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
 
 
 @endsection

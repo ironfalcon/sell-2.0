@@ -26,6 +26,7 @@ class OrderController extends Controller
     public function create()
     {
         //
+        return view('orders.create');
     }
 
     /**
@@ -71,6 +72,8 @@ class OrderController extends Controller
         $order->product_id = $request->product_id;
         $order->client_id = $client->id;
         $order->save();
+
+        return redirect()->route('index');
 
 
     }
