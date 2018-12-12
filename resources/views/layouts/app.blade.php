@@ -50,10 +50,10 @@
                               <!-- Nav Start -->
                               <div class="classynav">
                                   <ul>
-                                      <li><a class="btn-lash" href="index.html">Главная</a></li>
+                                      <li><a class="btn-lash" href="{{ route('index') }}">Главная</a></li>
                                       <li><a class="btn-lash" href="#about">О Нас</a></li>
                                       <li><a class="btn-lash" href="#courses">Курсы</a></li>
-                                      <li><a class="btn-lash" href="questions.html">Вопросы</a></li>
+                                      <li><a class="btn-lash" href="{{ route('questions.index') }}">Вопросы</a></li>
                                       <li><a class="btn-lash" href="#">Заказать курс</a></li>
                                       @auth
                                       <li class="nav-item dropdown">

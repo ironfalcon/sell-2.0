@@ -26,7 +26,7 @@
             <input required type="text" class="form-control" name="surname" id="surname" value="{{ old('surname')}}">
             <br>
             <label for="old">Возраст:</label>
-            <input required type="text" class="form-control" name="old" id="old" value="{{ old('old')}}">
+            <input required type="number" class="form-control" name="old" id="old" value="{{ old('old')}}">
             <br>
             <label for="country">Страна:</label>
             <input required type="text" class="form-control" name="country" id="country" value="{{ old('country')}}">
@@ -42,13 +42,25 @@
             <small id="emailHelp" class="form-text text-muted">На указанную почту вы получите письмо с информацией о заказе.</small>
             <br>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="product_id" id="inlineRadio1" value="1">
+              <input class="form-check-input" type="radio" name="product_id" id="inlineRadio1" value="1" checked>
               <label class="form-check-label" for="inlineRadio1">BASIC</label>
             </div>
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="product_id" id="inlineRadio2" value="2">
               <label class="form-check-label" for="inlineRadio2">PREMIUM</label>
             </div>
+            <br>
+            <hr>
+            Дополнительные контактные данные:
+            <label for="skype">Skype:</label>
+            <input required type="text" class="form-control" name="skype" id="skype" value="{{ old('skype')}}">
+            <br>
+            <label for="instagram">Instagram:</label>
+            <input required type="text" class="form-control" name="instagram" id="instagram" value="{{ old('instagram')}}">
+            <br>
+            <label for="facebook">Facebook:</label>
+            <input required type="text" class="form-control" name="facebook" id="facebook" value="{{ old('facebook')}}">
+            <br>
             <button type="submit" class="btn btn-success">Заказать</button>
           </div>
         </form>
