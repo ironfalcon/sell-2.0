@@ -16,8 +16,13 @@ Route::get('/', function () {
 })->name('index');
 
 Auth::routes();
-
+//order routes
 Route::post('/order/store', 'OrderController@store')->name('order.store');
 Route::get('/order/create', 'OrderController@create')->name('order.create');
+
+//questions routes
+Route::get('/questions/index', 'QuestionController@index')->name('questions.index');
+Route::post('/questions/store', 'QuestionController@store')->name('questions.store');
+
 
 Route::get('/home', 'HomeController@index')->name('home');

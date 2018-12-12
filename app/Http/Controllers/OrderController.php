@@ -55,14 +55,9 @@ class OrderController extends Controller
         $client->region = $request->region;
         $client->address = $request->address;
         $client->email = $request->email;
-        // $client->create([
-        //     'name' => $request->name,
-        //     'surname' => $request->surname,
-        //     'old' => $request->old,
-        //     'country' => $request->country,
-        //     'region' => $request->region,
-        //     'address' => $request->address,
-        //     'email' => $request->email,
+        $client->skype = $request->skype;
+        $client->instagram = $request->instagram;
+        $client->facebook = $request->facebook;
         $client->created_at = Carbon::now('Europe/Samara');
         $client->updated_at = Carbon::now('Europe/Samara');
             // ]);
