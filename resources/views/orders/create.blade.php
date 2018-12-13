@@ -53,13 +53,13 @@
             <hr>
             Дополнительные контактные данные:
             <label for="skype">Skype:</label>
-            <input required type="text" class="form-control" name="skype" id="skype" value="{{ old('skype')}}">
+            <input type="text" class="form-control" name="skype" id="skype" value="{{ old('skype')}}">
             <br>
             <label for="instagram">Instagram:</label>
-            <input required type="text" class="form-control" name="instagram" id="instagram" value="{{ old('instagram')}}">
+            <input type="text" class="form-control" name="instagram" id="instagram" value="{{ old('instagram')}}">
             <br>
             <label for="facebook">Facebook:</label>
-            <input required type="text" class="form-control" name="facebook" id="facebook" value="{{ old('facebook')}}">
+            <input type="text" class="form-control" name="facebook" id="facebook" value="{{ old('facebook')}}">
             <br>
             <button type="submit" class="btn btn-success">Заказать</button>
           </div>

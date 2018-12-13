@@ -54,9 +54,9 @@
                                       <li><a class="btn-lash" href="#about">О Нас</a></li>
                                       <li><a class="btn-lash" href="#courses">Курсы</a></li>
                                       <li><a class="btn-lash" href="{{ route('questions.index') }}">Вопросы</a></li>
-                                      <li><a class="btn-lash" href="#">Заказать курс</a></li>
+                                      <li><a class="btn-lash" href="{{ route('order.create') }}">Заказать курс</a></li>
                                       <!-- добавить в auth -->
-                                      <li><a class="btn-lash" href="{{ route('order.create') }}">Заказы</a></li>
+                                      <li><a class="btn-lash" href="{{ route('order.index') }}">Заказы</a></li>
                                       @auth
                                       <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

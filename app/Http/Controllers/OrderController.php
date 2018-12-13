@@ -16,6 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         //
+        $orders = Order::all();
+        return view('orders.index', ['orders' => $orders]);
     }
 
     /**
@@ -81,6 +83,8 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+        $order = Order::find($id);
+        return view('orders.show', ['order' => $order ]);
     }
 
     /**
