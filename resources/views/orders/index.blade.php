@@ -29,7 +29,7 @@
             <td>{{ $order->client->region }}</td>
             <td>{{ $order->product->name }}</td>
             <td>{{ $order->order_state }}</td>
-            <td><a class="btn btn-success" href="{{ route('order.show', $order->id) }}">Edit</a>
+            <td><a class="btn btn-success" href="{{ route('order.show', $order->id) }}">Просмотр</a>
 
             </td>
           </tr>

@@ -31,7 +31,7 @@
         <hr>
         Facebook: {{ $order->client->facebook or 'не указан' }}
         <hr>
-        Статус заказа: {{ $order->order_state or 'не указан' }}
+        Статус заказа: {{ $order->order_state or 'не указан' }} <a data-toggle="modal" data-target="#changeStatus" class="btn btn-success">изменить</a>
         <hr>
         Тип заказа: {{ $order->product->name or '' }}
         <hr>
@@ -43,11 +43,11 @@
 </div>
 
   <!-- изменение вопроса/ответа -->
-    <div class="modal fade" id="new_FAQ" role="dialog">
+    <div class="modal fade" id="changeStatus" role="dialog">
       <div class="modal-dialog modal-md">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Новый вопрос</h4>
+            <h4 class="modal-title">Статус заказа</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <div class="modal-body">
@@ -55,7 +55,7 @@
               {{ csrf_field() }}
 
               <div class="form-group">
-                <label for="question">Вопрос:</label>
+                <label for="question">Статус:</label>
                 <input required type="text" class="form-control" name="question" id="question" value="{{ old('question') }}">
                 <br>
                 <label for="answer">Ответ:</label>

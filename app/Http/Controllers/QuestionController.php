@@ -29,7 +29,17 @@ class QuestionController extends Controller
           Question::create($request->all());
 
         return redirect()->route('questions.index');
+    }
 
+    public function update(Request $request, $id)
+    {
+        //
+        $question = Question::find($id);
+        $question->question = $request->question;
+        $question->answer = $request->answer;
+        $question->save();
+
+        return redirect()->route('questions.index');
 
     }
 }

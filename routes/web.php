@@ -25,6 +25,7 @@ Route::get('/order/show/{id}', 'OrderController@show')->name('order.show');
 //questions routes
 Route::get('/questions/index', 'QuestionController@index')->name('questions.index');
 Route::post('/questions/store', 'QuestionController@store')->name('questions.store');
+Route::post('/questions/update/{id}', 'QuestionController@update')->name('questions.update');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

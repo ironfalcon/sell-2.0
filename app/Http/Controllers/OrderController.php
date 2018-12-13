@@ -84,6 +84,7 @@ class OrderController extends Controller
     {
         //
         $order = Order::find($id);
+        dd($order);
         return view('orders.show', ['order' => $order ]);
     }
 
