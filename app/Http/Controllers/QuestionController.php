@@ -35,8 +35,17 @@ class QuestionController extends Controller
     {
         //
         $question = Question::find($id);
-        $question->question = $request->question;
-        $question->answer = $request->answer;
+
+        if($request->lang == 'ru'){
+          $question->question = $request->question;
+          $question->answer = $request->answer;
+        }
+
+        if($request->lang == 'en'){
+          $question->question_en = $request->question;
+          $question->answer_en = $request->answer;
+        }
+
         $question->save();
 
         return redirect()->route('questions.index');

@@ -17,13 +17,15 @@
         {{ $question->question }}<br>
         {{ $question->answer }}<br>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        data-question="{{ $question->question }}" data-answer="{{ $question->answer }}" data-id="{{ route('questions.update', $question->id) }}">Изменить</button>
+        data-question="{{ $question->question }}" data-answer="{{ $question->answer }}"
+         data-id="{{ route('questions.update', $question->id) }}" data-lang="ru">Изменить</button>
         <hr>
         {{ $question->question_en }}<br>
         {{ $question->answer_en }}<br>
         <!-- добавить auth -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-        data-question="{{ $question->question_en }}" data-answer="{{ $question->answer_en }}" data-id="{{ $question->id }}">Изменить</button>
+        data-question="{{ $question->question_en }}" data-answer="{{ $question->answer_en }}"
+         data-id="{{ route('questions.update', $question->id) }}" data-lang="en">Изменить</button>
       </div>
       @endforeach
     </div>
@@ -79,6 +81,7 @@
           <div class="modal-body">
             <form enctype="multipart/form-data" id="formUpdate" action="{{ route('questions.store') }}" method="POST">
               {{ csrf_field() }}
+              <input type="hidden" id="lang" name="lang">
               <div class="form-group">
                 <label for="question" class="col-form-label">Вопрос:</label>
                 <input type="text"  name="question" class="form-control" id="question">
