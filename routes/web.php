@@ -20,7 +20,8 @@ Auth::routes();
 Route::post('/order/store', 'OrderController@store')->name('order.store');
 Route::get('/order/create', 'OrderController@create')->name('order.create');
 Route::get('/order/index', 'OrderController@index')->name('order.index');
-Route::get('/order/show/{id}', 'OrderController@show')->name('order.show');
+Route::post('/order/update/{id}', 'OrderController@update')->name('order.update');
+
 
 //questions routes
 Route::get('/questions/index', 'QuestionController@index')->name('questions.index');

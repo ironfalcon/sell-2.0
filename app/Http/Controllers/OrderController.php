@@ -107,6 +107,26 @@ class OrderController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $order = Order::find($id);
+
+          $order->client->name = $request->name;
+          $order->client->surname = $request->surname;
+          $order->client->old = $request->old;
+          $order->client->country = $request->country;
+          $order->client->region = $request->region;
+          $order->client->address = $request->addres;
+          $order->client->email = $request->email;
+          $order->client->instagram = $request->instagram;
+          $order->client->skype = $request->skype;
+          $order->client->facebook = $request->facebook;
+          $order->order_state = $request->status;
+          $order->product_id = $request->product_id;
+          if($request->token_created == 'create'){
+            $order->token = "hyeyruedijihsiw";
+          }
+          $order->save();
+
+        return redirect()->route('order.index');
     }
 
     /**

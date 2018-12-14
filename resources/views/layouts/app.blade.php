@@ -180,6 +180,44 @@
 
         })
 
+        $('#editOrder').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var route = button.data('route')
+          var id = button.data('id')
+          var name = button.data('name')
+          var surname = button.data('surname')
+          var old = button.data('old')
+          var country = button.data('country')
+          var region = button.data('region')
+          var address = button.data('address')
+          var email = button.data('email')
+          var instagram = button.data('instagram')
+          var skype = button.data('skype')
+          var facebook = button.data('facebook')
+          var status = button.data('status')
+          var type = button.data('type')
+          var token = button.data('token')
+           // Extract info from data-* attributes
+          // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+          // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+          var modal = $(this)
+          modal.find('#route').attr("action", route )
+          modal.find('.modal-title').text('заказ№' + id)
+          modal.find('#name').val(name)
+          modal.find('#surname').val(surname)
+          modal.find('#old').val(old)
+          modal.find('#country').val(country)
+          modal.find('#region').val(region)
+          modal.find('#address').val(address)
+          modal.find('#email').val(email)
+          modal.find('#instagram').val(instagram)
+          modal.find('#skype').val(skype)
+          modal.find('#facebook').val(facebook)
+          modal.find('#status').val(status)
+          modal.find('#type').val(type)
+          modal.find('#token').val(token)
+        })
+
         </script>
 
 </body>
