@@ -78,45 +78,6 @@
 </div>
 </div>
 
-
-
-
-
-<!-- Создание нового вопроса/ответа -->
-  <div class="modal fade" id="new_FAQ" role="dialog">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Новый вопрос</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <form enctype="multipart/form-data" action="{{ route('questions.store') }}" method="POST">
-            {{ csrf_field() }}
-
-            <div class="form-group">
-              <label for="question">Вопрос:</label>
-              <input required type="text" class="form-control" name="question" id="question" value="{{ old('question') }}">
-              <br>
-              <label for="answer">Ответ:</label>
-              <textarea name="answer" id="answer"  class="form-control mb-2" cols="30" rows="4" placeholder="answer"></textarea>
-              <br>
-              <hr>
-              <label for="question_en">Вопрос(en):</label>
-              <input required type="text" class="form-control" name="question_en" id="question" value="{{ old('question_en') }}">
-              <br>
-              <label for="answer">Ответ(en):</label>
-              <textarea name="answer_en" id="answer_en"  class="form-control mb-2" cols="30" rows="4" placeholder="answer"></textarea>
-              <br>
-            </div>
-            <button type="submit" class="btn btn-success">Добавить</button>
-          </form>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
   <!-- изменение вопроса/ответа -->
     <div class="modal fade" id="editOrder" role="dialog">
       <div class="modal-dialog modal-md">
@@ -153,8 +114,19 @@
                 <small id="emailHelp" class="form-text text-muted">На указанную почту вы получите письмо с информацией о заказе.</small>
                 <br>
                 <label for="address">Статус:</label>
-                <input required type="text" class="form-control" name="status" id="status" >
+                <input required type="text" class="form-control" name="order_state" id="status" >
                 <br>
+
+                <!-- <div class="form-group">
+                  <label for="exampleFormControlSelect1">Example select</label>
+                  <select class="form-control" id="status2" name="order_state">
+                    <option value="created">Заказ создан</option>
+                    <option value="waiting for pay">Ожидает оплаты</option>
+                    <option id="paid" value="paid">Оплачен</option>
+                    <option value="test passed">Тест пройден</option>
+                  </select>
+                </div> -->
+
                 <div class="form-check form-check-inline">
                   <input class="form-check-input" type="radio" name="product_id" id="inlineRadio1" value="1" checked>
                   <label class="form-check-label" for="inlineRadio1">BASIC</label>
@@ -179,6 +151,7 @@
                 <label for="facebook">Facebook:</label>
                 <input type="text" class="form-control" name="facebook" id="facebook">
                 <br>
+                <label id="token">Token:</label>
               </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
               <button type="submit" class="btn btn-primary">Сохранить</button>

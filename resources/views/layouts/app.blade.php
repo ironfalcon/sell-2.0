@@ -162,6 +162,7 @@
         <script src="{{ asset('js/active.js') }}"></script>
 
         <script>
+        // question modal edit/update
         $('#exampleModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var question = button.data('question')
@@ -180,6 +181,7 @@
 
         })
 
+        // order modal edit/update
         $('#editOrder').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var route = button.data('route')
@@ -202,7 +204,7 @@
           // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
           var modal = $(this)
           modal.find('#route').attr("action", route )
-          modal.find('.modal-title').text('заказ№' + id)
+          modal.find('.modal-title').text('Заказ№' + id)
           modal.find('#name').val(name)
           modal.find('#surname').val(surname)
           modal.find('#old').val(old)
@@ -215,8 +217,11 @@
           modal.find('#facebook').val(facebook)
           modal.find('#status').val(status)
           modal.find('#type').val(type)
-          modal.find('#token').val(token)
+          modal.find('#token').text('Token:' + token)
+
         })
+
+
 
         </script>
 

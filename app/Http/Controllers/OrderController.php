@@ -106,25 +106,29 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-        $order = Order::find($id);
-
-          $order->client->name = $request->name;
-          $order->client->surname = $request->surname;
-          $order->client->old = $request->old;
-          $order->client->country = $request->country;
-          $order->client->region = $request->region;
-          $order->client->address = $request->addres;
-          $order->client->email = $request->email;
-          $order->client->instagram = $request->instagram;
-          $order->client->skype = $request->skype;
-          $order->client->facebook = $request->facebook;
-          $order->order_state = $request->status;
-          $order->product_id = $request->product_id;
-          if($request->token_created == 'create'){
-            $order->token = "hyeyruedijihsiw";
+        //random token generator
+        function generateRandomString() {
+          $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          $charactersLength = strlen($characters);
+          $randomString = '';
+          for ($i = 0; $i < 10; $i++) {
+              $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
           }
-          $order->save();
+
+        //update order
+        $order = Order::find($id);
+        $order->update($request->only('order_state', 'product_id'));
+
+        $order->client()->update($request->only('name', 'surname',
+          'old', 'country', 'region', 'address', 'email', 'instagram',
+          'skype', 'facebook'));
+
+          if($request->token_created == 'create'){
+            $order->token = generateRandomString();
+            $order->save();
+          }
 
         return redirect()->route('order.index');
     }
@@ -138,4 +142,5 @@ class OrderController extends Controller
     {
         //
     }
+
 }
