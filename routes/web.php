@@ -28,5 +28,7 @@ Route::get('/questions/index', 'QuestionController@index')->name('questions.inde
 Route::post('/questions/store', 'QuestionController@store')->name('questions.store');
 Route::post('/questions/update/{id}', 'QuestionController@update')->name('questions.update');
 
+Route::post('/lang', 'HomeController@language')->name('lang.set');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
