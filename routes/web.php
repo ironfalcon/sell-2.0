@@ -16,8 +16,23 @@ Route::get('/', function () {
 })->name('index');
 
 Auth::routes();
-
+//order routes
 Route::post('/order/store', 'OrderController@store')->name('order.store');
 Route::get('/order/create', 'OrderController@create')->name('order.create');
+Route::get('/order/index', 'OrderController@index')->name('order.index');
+Route::post('/order/update/{id}', 'OrderController@update')->name('order.update');
+
+
+//questions routes
+Route::get('/questions/index', 'QuestionController@index')->name('questions.index');
+Route::post('/questions/store', 'QuestionController@store')->name('questions.store');
+Route::post('/questions/update/{id}', 'QuestionController@update')->name('questions.update');
+
+
+Route::get('locale/{locale}', function ($locale) {
+    \Session::put('locale', $locale);
+    return redirect()->back();
+});
+
 
 Route::get('/home', 'HomeController@index')->name('home');

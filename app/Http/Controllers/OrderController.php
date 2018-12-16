@@ -16,6 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         //
+        $orders = Order::all();
+        return view('orders.index', ['orders' => $orders]);
     }
 
     /**
@@ -55,14 +57,9 @@ class OrderController extends Controller
         $client->region = $request->region;
         $client->address = $request->address;
         $client->email = $request->email;
-        // $client->create([
-        //     'name' => $request->name,
-        //     'surname' => $request->surname,
-        //     'old' => $request->old,
-        //     'country' => $request->country,
-        //     'region' => $request->region,
-        //     'address' => $request->address,
-        //     'email' => $request->email,
+        $client->skype = $request->skype;
+        $client->instagram = $request->instagram;
+        $client->facebook = $request->facebook;
         $client->created_at = Carbon::now('Europe/Samara');
         $client->updated_at = Carbon::now('Europe/Samara');
             // ]);
@@ -86,6 +83,9 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+        $order = Order::find($id);
+        dd($order);
+        return view('orders.show', ['order' => $order ]);
     }
 
     /**
@@ -106,7 +106,31 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //random token generator
+        function generateRandomString() {
+          $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          $charactersLength = strlen($characters);
+          $randomString = '';
+          for ($i = 0; $i < 10; $i++) {
+              $randomString .= $characters[rand(0, $charactersLength - 1)];
+            }
+            return $randomString;
+          }
+
+        //update order
+        $order = Order::find($id);
+        $order->update($request->only('order_state', 'product_id'));
+
+        $order->client()->update($request->only('name', 'surname',
+          'old', 'country', 'region', 'address', 'email', 'instagram',
+          'skype', 'facebook'));
+
+          if($request->token_created == 'create'){
+            $order->token = generateRandomString();
+            $order->save();
+          }
+
+        return redirect()->route('order.index');
     }
 
     /**
@@ -118,4 +142,5 @@ class OrderController extends Controller
     {
         //
     }
+
 }
