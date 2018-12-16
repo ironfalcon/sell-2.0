@@ -10,31 +10,15 @@
                     <iframe width="100%" height="450" src="https://www.youtube.com/embed/rtX7pZgiJe8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="about-block col-12 col-sm-12 col-md-12 col-xl-6 bd-highlight">
-                <div class="title-about text-center">Perfect School Lashes</div>
-
-                <form action="{{ route('lang.set') }}" method="post">
-                  {{ csrf_field() }}
-                <select name="languageSwitcher" class="form-control" id="lang">
-                  <option value="en">English</option>
-                  <option value="ru">Russian</option>
-                </select>
-                  <button type="submit" class="btn btn-primary">Выбрать</button>
-              </form>
-                @lang('main.product_desc')
+                <div class="title-about text-center">@lang('main.schoolTitle')</div>
                 <p>
-                        Flex
-                        Quickly manage the layout, alignment, and sizing of grid columns, navigation,
-                        components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.
+                        @lang('main.schoolDesk')
                 </p>
                 <p>
-                        Flex
-                        Quickly manage the layout, alignment, and sizing of grid columns, navigation,
-                        components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.
+                      @lang('main.schoolDesk')
                 </p>
                 <p>
-                        Flex
-                        Quickly manage the layout, alignment, and sizing of grid columns, navigation,
-                        components, and more with a full suite of responsive flexbox utilities. For more complex implementations, custom CSS may be necessary.
+                        @lang('main.schoolDesk')
                 </p>
             </div>
         </div>

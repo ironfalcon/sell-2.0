@@ -50,13 +50,21 @@
                               <!-- Nav Start -->
                               <div class="classynav">
                                   <ul>
-                                      <li><a class="btn-lash" href="{{ route('index') }}">Главная</a></li>
-                                      <li><a class="btn-lash" href="#about">О Нас</a></li>
-                                      <li><a class="btn-lash" href="#courses">Курсы</a></li>
-                                      <li><a class="btn-lash" href="{{ route('questions.index') }}">Вопросы</a></li>
-                                      <li><a class="btn-lash" href="{{ route('order.create') }}">Заказать курс</a></li>
+                                    <!-- панель выбора языка -->
+                                      <div class="links">
+                                          <a href="locale/en">en</a>
+                                          |
+                                          <a href="locale/ru">ru</a>
+                                      </div>
+                                      <!-- конец панели выбора языка -->
+                                      <li><a class="btn-lash" href="{{ route('index') }}">@lang('main.menuMain')</a></li>
+                                      <li><a class="btn-lash" href="#about">@lang('main.menuAbout')</a></li>
+                                      <li><a class="btn-lash" href="#courses">@lang('main.menuCourse')</a></li>
+                                      <li><a class="btn-lash" href="{{ route('questions.index') }}">@lang('main.menuFAQ')</a></li>
+                                      <li><a class="btn-lash" href="{{ route('order.create') }}">@lang('main.menuBuyCourse')</a></li>
+                                      <li><a class="btn-lash" href="{{ route('order.create') }}">@lang('main.menuComments')</a></li>
                                       <!-- добавить в auth -->
-                                      <li><a class="btn-lash" href="{{ route('order.index') }}">Заказы</a></li>
+                                      <li><a class="btn-lash" href="{{ route('order.index') }}">@lang('main.menuOrders')</a></li>
                                       @auth
                                       <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
