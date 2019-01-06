@@ -52,9 +52,9 @@
                                   <ul>
                                     <!-- панель выбора языка -->
                                       <div class="links">
-                                          <a href="locale/en">en</a>
+                                          <a href="{{ route('localization.setup', 'en') }}">en</a>
                                           |
-                                          <a href="locale/ru">ru</a>
+                                          <a href="{{ route('localization.setup', 'ru') }}">ru</a>
                                       </div>
                                       <!-- конец панели выбора языка -->
                                       <li><a class="btn-lash" href="{{ route('index') }}">@lang('main.menuMain')</a></li>
